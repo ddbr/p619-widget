@@ -34,6 +34,9 @@ class P619_image_widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
+		if ( ! empty( $instance['text'] ) ) {
+			echo $args['before_text'] . apply_filters( 'widget_text', $instance['text'] ) . $args['after_text'];
+		}
 		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );
 		echo $args['after_widget'];
 	}
@@ -47,10 +50,12 @@ class P619_image_widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
+		$text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'New text', 'text_domain' );
 		?>
 		<p>
 		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" type="text" value="<?php echo esc_attr( $text ); ?>">
 		</p>
 		<?php
 	}
@@ -68,13 +73,14 @@ class P619_image_widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
+		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? strip_tags( $new_instance['text'] ) : '';
 
 		return $instance;
 	}
 
 } // class P619_image_widget
 
-// register Foo_Widget widget
+// register P619_image_widget widget
 function register_p619_image_widget() {
     register_widget( 'P619_image_widget' );
 }
