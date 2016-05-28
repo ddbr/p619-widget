@@ -75,8 +75,8 @@ class P619_image_widget extends WP_Widget {
 } // class P619_image_widget
 
 // register Foo_Widget widget
-function register_foo_widget() {
-    register_widget( 'Foo_Widget' );
+function register_p619_image_widget() {
+    register_widget( 'P619_image_widget' );
 }
-add_action( 'widgets_init', 'register_foo_widget' );
+add_action( 'widgets_init', 'register_p619_image_widget' );
 ?>
