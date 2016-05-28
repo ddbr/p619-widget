@@ -8,16 +8,16 @@ Version: 1
 Author URI: http://p619.ch
 */
 
-class Foo_Widget extends WP_Widget {
+class P619_image_widget extends WP_Widget {
 
 	/**
 	 * Register widget with WordPress.
 	 */
 	function __construct() {
 		parent::__construct(
-			'foo_widget', // Base ID
-			__( 'Widget Title', 'text_domain' ), // Name
-			array( 'description' => __( 'A Foo Widget', 'text_domain' ), ) // Args
+			'p619_image_widget', // Base ID
+			__( 'P619 Image Widget', 'text_domain' ), // Name
+			array( 'description' => __( 'Kachel mit Bild', 'text_domain' ), ) // Args
 		);
 	}
 
@@ -72,6 +72,5 @@ class Foo_Widget extends WP_Widget {
 		return $instance;
 	}
 
-} // class Foo_Widget
-//add_action( 'widgets_init', create_function('', 'return register_widget("Foo_Widget");') );
+} // class P619_image_widget
 ?>
