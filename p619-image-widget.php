@@ -1,77 +1,53 @@
 <?php
 /*
-Plugin Name: P619 image Widget
-Plugin URI: http://p619.ch
-Description: P619 Image Tile Widget
-Author: Daniel Bräker
+Plugin Name: Random Post Widget
+Plugin URI: http://jamesbruce.me/
+Description: Random Post Widget grabs a random post and the associated thumbnail to display on your sidebar
+Author: James Bruce
 Version: 1
-Author URI: http://p619.ch
+Author URI: http://jamesbruce.me/
 */
 
-class Foo_Widget extends WP_Widget {
 
-	/**
-	 * Register widget with WordPress.
-	 */
-	function __construct() {
-		parent::__construct(
-			'foo_widget', // Base ID
-			__( 'Widget Title', 'text_domain' ), // Name
-			array( 'description' => __( 'A Foo Widget', 'text_domain' ), ) // Args
-		);
-	}
+class RandomPostWidget extends WP_Widget
+{
+  function RandomPostWidget()
+  {
+    $widget_ops = array('classname' => 'RandomPostWidget', 'description' => 'Displays a random post with thumbnail' );
+    $this->WP_Widget('RandomPostWidget', 'Random Post and Thumbnail', $widget_ops);
+  }
 
-	/**
-	 * Front-end display of widget.
-	 *
-	 * @see WP_Widget::widget()
-	 *
-	 * @param array $args     Widget arguments.
-	 * @param array $instance Saved values from database.
-	 */
-	public function widget( $args, $instance ) {
-		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
-		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );
-		echo $args['after_widget'];
-	}
-
-	/**
-	 * Back-end widget form.
-	 *
-	 * @see WP_Widget::form()
-	 *
-	 * @param array $instance Previously saved values from database.
-	 */
-	public function form( $instance ) {
-		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
-		?>
-		<p>
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-		</p>
-		<?php
-	}
-
-	/**
-	 * Sanitize widget form values as they are saved.
-	 *
-	 * @see WP_Widget::update()
-	 *
-	 * @param array $new_instance Values just sent to be saved.
-	 * @param array $old_instance Previously saved values from database.
-	 *
-	 * @return array Updated safe values to be saved.
-	 */
-	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-
-		return $instance;
-	}
-
-} // class Foo_Widget
-add_action( 'widgets_init', create_function('', 'return register_widget("Foo_Widget");') );?>
+  function form($instance)
+  {
+    $instance = wp_parse_args( (array) $instance, array( 'title' => '' ) );
+    $title = $instance['title'];
 ?>
+  <p><label for="<?php echo $this->get_field_id('title'); ?>">Title: <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo attribute_escape($title); ?>" /></label></p>
+<?php
+  }
+
+  function update($new_instance, $old_instance)
+  {
+    $instance = $old_instance;
+    $instance['title'] = $new_instance['title'];
+    return $instance;
+  }
+
+  function widget($args, $instance)
+  {
+    extract($args, EXTR_SKIP);
+
+    echo $before_widget;
+    $title = empty($instance['title']) ? ' ' : apply_filters('widget_title', $instance['title']);
+
+    if (!empty($title))
+      echo $before_title . $title . $after_title;;
+
+    // WIDGET CODE GOES HERE
+    echo "<h1>This is my new widget!</h1>";
+
+    echo $after_widget;
+  }
+
+}
+add_action( 'widgets_init', create_function('', 'return register_widget("RandomPostWidget");') );?>
