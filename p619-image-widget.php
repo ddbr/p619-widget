@@ -1,4 +1,12 @@
 <?php
+/*
+Plugin Name: P619 image Widget
+Plugin URI: http://p619.ch
+Description: P619 Image Tile Widget
+Author: Daniel Bräker
+Version: 1
+Author URI: http://p619.ch
+*/
 
 class Foo_Widget extends WP_Widget {
 
