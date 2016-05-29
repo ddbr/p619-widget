@@ -1,25 +1,3 @@
-/*jQuery(document).ready(function($) {
-    $(document).on("click", ".upload_image_button", function() {
-
-        jQuery.data(document.body, 'prevElement', $(this).prev());
-
-        window.send_to_editor = function(html) {
-            var imgurl = jQuery(html).attr('src');
-            var inputText = jQuery.data(document.body, 'prevElement');
-
-            if(inputText != undefined && inputText != '')
-            {
-                inputText.val(imgurl);
-            }
-
-            tb_remove();
-        };
-
-        tb_show('', 'media-upload.php?type=image&TB_iframe=true');
-        return false;
-    });
-});*/
-
 jQuery( document ).ready( function( $ ) {
 
   // Uploading files
@@ -28,7 +6,6 @@ jQuery( document ).ready( function( $ ) {
   var input_id_element;
 
   $(document).on("click", ".upload_image_button", function() {
-  /*jQuery('.upload_image_button').on('click', function( event ){*/
     var input_id_element = jQuery( this ).prev() // Set this
     alert( input_id_element.val() );
     // If the media frame already exists, reopen it.
@@ -44,12 +21,12 @@ jQuery( document ).ready( function( $ ) {
     }
 
     // Create the media frame.
-    file_frame = wp.media.frames.file_frame = wp.media({
-      title: 'Select a image to upload',
+    file_frame = wp.media.frames.file_frame = wp.media
+      title: 'Select a image',
       button: {
         text: 'Use this image',
       },
-      multiple: false	// Set to true to allow multiple files to be selected
+      multiple: false,
     });
 
     // When an image is selected, run a callback.
@@ -65,9 +42,21 @@ jQuery( document ).ready( function( $ ) {
       wp.media.model.settings.post.id = wp_media_post_id;
     });
 
+    file_frame.on('open',function() {
+      var selection = frame.state().get('selection');
+      ids = input_id_element.val().split(',');
+      ids.forEach(function(id) {
+        attachment = wp.media.attachment(id);
+        attachment.fetch();
+        selection.add( attachment ? [ attachment ] : [] );
+      });
+    });
+
       // Finally, open the modal
       file_frame.open();
   });
+
+
 
   // Restore the main ID when the add media button is pressed
   jQuery( 'a.add_media' ).on( 'click', function() {
