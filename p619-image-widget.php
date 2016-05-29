@@ -22,6 +22,18 @@ class P619_image_widget extends WP_Widget {
 	}
 
 	/**
+	* Upload the Javascripts for the media uploader
+	*/
+	public function upload_scripts()
+	{
+		wp_enqueue_script('media-upload');
+		wp_enqueue_script('thickbox');
+		wp_enqueue_script('upload_media_widget', plugin_dir_url(__FILE__) . 'upload-media.js', array('jquery'));
+
+		wp_enqueue_style('thickbox');
+	}
+
+	/**
 	 * Front-end display of widget.
 	 *
 	 * @see WP_Widget::widget()
@@ -78,11 +90,9 @@ class P619_image_widget extends WP_Widget {
 	 * @return array Updated safe values to be saved.
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-		$instance['text'] = ( ! empty( $new_instance['text'] ) ) ? strip_tags( $new_instance['text'] ) : '';
-
-		return $instance;
+		// update logic goes here
+		$updated_instance = $new_instance;
+		return $updated_instance;
 	}
 
 } // class P619_image_widget
