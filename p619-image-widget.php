@@ -51,7 +51,7 @@ class P619_image_widget extends WP_Widget {
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 		$text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'New text', 'text_domain' );
-		$image = ! empty( $instance['image'] ) ? $instance['image'];
+		$image = ! empty( $instance['image'] ) ? $instance['image'] : __( 'New image', 'text_domain' );
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
