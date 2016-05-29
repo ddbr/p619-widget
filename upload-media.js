@@ -21,12 +21,12 @@ jQuery( document ).ready( function( $ ) {
     }
 
     // Create the media frame.
-    file_frame = wp.media.frames.file_frame = wp.media
-      title: 'Select a image',
-      button: {
-        text: 'Use this image',
-      },
-      multiple: false
+    file_frame = wp.media.frames.file_frame = wp.media({
+        title: 'Select a image to upload',
+    		button: {
+    			text: 'Use this image',
+    		},
+    		multiple: false
     });
 
     // When an image is selected, run a callback.
