@@ -19,6 +19,8 @@ class P619_image_widget extends WP_Widget {
 			__( 'P619 Image Widget', 'text_domain' ), // Name
 			array( 'description' => __( 'Kachel mit Bild', 'text_domain' ), ) // Args
 		);
+
+		add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
 	}
 
 	/**
