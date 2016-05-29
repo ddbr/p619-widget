@@ -26,7 +26,7 @@ jQuery( document ).ready( function( $ ) {
       button: {
         text: 'Use this image',
       },
-      multiple: false,
+      multiple: false
     });
 
     // When an image is selected, run a callback.
