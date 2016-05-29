@@ -34,13 +34,13 @@ jQuery( document ).ready( function( $ ) {
     // If the media frame already exists, reopen it.
     if ( file_frame ) {
       // Set the post ID to what we want
-      file_frame.uploader.uploader.param( 'post_id', set_to_post_id.val() );
+      file_frame.uploader.uploader.param( 'post_id', input_id_element.val() );
       // Open frame
       file_frame.open();
       return;
     } else {
       // Set the wp.media post id so the uploader grabs the ID we want when initialised
-      wp.media.model.settings.post.id = set_to_post_id.val();
+      wp.media.model.settings.post.id = input_id_element.val();
     }
 
     // Create the media frame.
