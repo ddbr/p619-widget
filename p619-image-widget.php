@@ -77,8 +77,8 @@ class P619_image_widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo $this->get_field_name( 'image' ); ?>"><?php _e( 'Image:' ); ?></label>
-			<input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
-			<input id="image_attachment_id" type="text" size="36"  value="<?php echo esc_url( $image ); ?>" />
+			<input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_attr( $image ); ?>" />
+			<input id="image_attachment_id" type="text" size="36"  value="<?php echo esc_attr( $image ); ?>" />
 			<input class="upload_image_button button button-primary" type="button" value="Upload Image" />
 		</p>
 		<?php
