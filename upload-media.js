@@ -27,7 +27,8 @@ jQuery( document ).ready( function( $ ) {
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
   var set_to_post_id = jQuery( '#image_attachment_id' ).val; // Set this
 
-  jQuery('.upload_image_button').on('click', function( event ){
+  $(document).on("click", ".upload_image_button", function() {
+  /*jQuery('.upload_image_button').on('click', function( event ){*/
 
     event.preventDefault();
 
