@@ -25,21 +25,22 @@ jQuery( document ).ready( function( $ ) {
   // Uploading files
   var file_frame;
   var wp_media_post_id = wp.media.model.settings.post.id; // Store the old id
+  var input_id_element;
 
   $(document).on("click", ".upload_image_button", function() {
   /*jQuery('.upload_image_button').on('click', function( event ){*/
-    var set_to_post_id = jQuery( this ).prev().val() // Set this
-    alert(jQuery( this ).prev().val());
+    var input_id_element = jQuery( this ).prev() // Set this
+    alert( input_id_element.val() );
     // If the media frame already exists, reopen it.
     if ( file_frame ) {
       // Set the post ID to what we want
-      file_frame.uploader.uploader.param( 'post_id', set_to_post_id );
+      file_frame.uploader.uploader.param( 'post_id', set_to_post_id.val() );
       // Open frame
       file_frame.open();
       return;
     } else {
       // Set the wp.media post id so the uploader grabs the ID we want when initialised
-      wp.media.model.settings.post.id = set_to_post_id;
+      wp.media.model.settings.post.id = set_to_post_id.val();
     }
 
     // Create the media frame.
@@ -58,7 +59,7 @@ jQuery( document ).ready( function( $ ) {
 
       // Do something with attachment.id and/or attachment.url here
       //$( '#image-preview' ).attr( 'src', attachment.url ).css( 'width', 'auto' );
-      jQuery( this ).prev().val( attachment.id );
+      input_id_element.val( attachment.id );
 
       // Restore the main post ID
       wp.media.model.settings.post.id = wp_media_post_id;
