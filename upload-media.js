@@ -29,7 +29,7 @@ jQuery( document ).ready( function( $ ) {
 
   $(document).on("click", ".upload_image_button", function() {
   /*jQuery('.upload_image_button').on('click', function( event ){*/
-
+    alert($(this).attr('id'));
     event.preventDefault();
 
     // If the media frame already exists, reopen it.
