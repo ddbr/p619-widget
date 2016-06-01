@@ -19,20 +19,23 @@ class P619_image_widget extends WP_Widget {
 			__( 'P619 Image Widget', 'text_domain' ), // Name
 			array( 'description' => __( 'Kachel mit Bild', 'text_domain' ), ) // Args
 		);
-		wp_register_style( 'wpdocsPluginStylesheet', plugins_url( 'p619_image_widget.css', __FILE__ ) );
 		add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
+		add_action('wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
 	}
 
 	/**
 	* Upload the Javascripts for the media uploader
 	*/
-	public function upload_scripts()
-	{
+	public function upload_scripts() {
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
 		wp_enqueue_script('upload_media_widget', plugin_dir_url(__FILE__) . 'upload-media.js', array('jquery'));
-
 		wp_enqueue_style('thickbox');
+	}
+
+	public function register_plugin_styles() {
+		wp_register_style( 'P619_image_widget', plugins_url( 'P619_image_widget/p619_image_widget.css' ) );
+		wp_enqueue_style( 'P619_image_widget' );
 	}
 
 	/**
