@@ -7,7 +7,6 @@ jQuery( document ).ready( function( $ ) {
 
   $(document).on("click", ".upload_image_button", function() {
     input_id_element = jQuery( this ).prev() // Set this
-    alert( input_id_element.val() );
     // If the media frame already exists, reopen it.
     if ( file_frame ) {
       // Set the post ID to what we want
