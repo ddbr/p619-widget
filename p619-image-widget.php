@@ -48,6 +48,8 @@ class P619_image_widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
+		$img_id = apply_filters( 'widget_image', $instance['image'] );
+		$img_src = wp_get_attachment_url( $img_id );
 		/*if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
@@ -57,7 +59,7 @@ class P619_image_widget extends WP_Widget {
 		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );*/
 		?>
 		<div class="outer">
-		  <div class="back" style="background-image: url(http://bit.ly/1ZdMXIb)"></div>
+		  <div class="back" style="background-image: url(<?php echo $img_src ?>)"></div>
 		</div>
 		<?php
 		echo $args['after_widget'];
