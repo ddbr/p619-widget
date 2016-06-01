@@ -43,7 +43,7 @@ jQuery( document ).ready( function( $ ) {
     });
 
     file_frame.on('open',function() {
-      var selection = frame.state().get('selection');
+      var selection = file_frame.state().get('selection');
       ids = input_id_element.val().split(',');
       ids.forEach(function(id) {
         attachment = wp.media.attachment(id);
