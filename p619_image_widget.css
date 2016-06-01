@@ -1,0 +1,14 @@
+.widget_p619_image_widget .outer {
+  width: 400px;
+  box-sizing: border-box;
+  overflow: visible;
+  border: 1px solid green;
+}
+.widget_p619_image_widget .back {
+  width: 100%;
+  border: 1px solid red;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  left: 100%;
+}

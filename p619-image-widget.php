@@ -19,7 +19,7 @@ class P619_image_widget extends WP_Widget {
 			__( 'P619 Image Widget', 'text_domain' ), // Name
 			array( 'description' => __( 'Kachel mit Bild', 'text_domain' ), ) // Args
 		);
-
+		wp_register_style( 'wpdocsPluginStylesheet', plugins_url( 'p619_image_widget.css', __FILE__ ) );
 		add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
 	}
 
@@ -45,18 +45,21 @@ class P619_image_widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
-		if ( ! empty( $instance['title'] ) ) {
+		/*if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
 		if ( ! empty( $instance['text'] ) ) {
 			echo $args['before_text'] . apply_filters( 'widget_text', $instance['text'] ) . $args['after_text'];
 		}
-		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );
-		echo $args['after_widget'];
+		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );*/
 
-
+		?>
+		<div class="outer">
+		  <div class="back" style="background-image: url(http://bit.ly/1ZdMXIb)"></div>
+		</div>
+		<?php
 		echo "text";
-
+		echo $args['after_widget'];
 	}
 
 	/**
