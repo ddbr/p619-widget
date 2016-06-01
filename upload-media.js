@@ -6,7 +6,7 @@ jQuery( document ).ready( function( $ ) {
   var input_id_element;
 
   $(document).on("click", ".upload_image_button", function() {
-    var input_id_element = jQuery( this ).prev() // Set this
+    input_id_element = jQuery( this ).prev() // Set this
     alert( input_id_element.val() );
     // If the media frame already exists, reopen it.
     if ( file_frame ) {
