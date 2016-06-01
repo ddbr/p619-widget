@@ -55,13 +55,11 @@ class P619_image_widget extends WP_Widget {
 			echo $args['before_text'] . apply_filters( 'widget_text', $instance['text'] ) . $args['after_text'];
 		}
 		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );*/
-
 		?>
 		<div class="outer">
 		  <div class="back" style="background-image: url(http://bit.ly/1ZdMXIb)"></div>
 		</div>
 		<?php
-		echo "text";
 		echo $args['after_widget'];
 	}
 
