@@ -1,12 +1,19 @@
 .widget_p619_text_widget .outer {
-  width: 100%;
-  box-sizing: border-box;
-  overflow: hidden;
+  position: relative;
 }
-.widget_p619_text_widget .back {
-  width: 100%;
+
+.widget_p619_text_widget .box {
   padding-top: 100%;
-  background-size: cover;
-  background-position: center;
-  left: 100%;
+}
+
+.widget_p619_text_widget .inner {
+  position: absolute;
+  padding: 10%;
+  margin-bottom: 20%;
+  top: 0px;
+  bottom: 0px;
+  overflow: hidden;
+  display: inline-block;
+  word-wrap: break-word;
+  word-break: break-word;
 }
