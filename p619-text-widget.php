@@ -34,7 +34,9 @@ class P619_text_widget extends WP_Widget {
 		$txt_p = apply_filters( 'widget_text', $instance['text'] );
 		?>
 		<div class="outer">
-		  <div class="box">
+		  <div class="box" style="
+					padding-top: <?php echo $imgheight ?>%;
+				">
 		  </div>
 		  <div class="inner">
 		    <h1><?php echo $txt_h1; ?></h1>
@@ -55,6 +57,7 @@ class P619_text_widget extends WP_Widget {
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 		$text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'New text', 'text_domain' );
+		$img_height = ! empty( $instance['img_height'] ) ? $instance['img_height'] : __( 'New img_height', 'text_domain' );
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
@@ -63,6 +66,11 @@ class P619_text_widget extends WP_Widget {
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>"><?php _e( esc_attr( 'Text:' ) ); ?></label>
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" type="text" value="<?php echo esc_attr( $text ); ?>">
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( 'Image Height:' ) ); ?></label>
+			<input type="number" name="<?php echo esc_attr( $this->get_field_name( 'img_height' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>" min="0" max="100" step="1" value="<?php echo esc_attr( $img_height ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( '%' ) ); ?></label>
 		</p>
 		<?php
 	}
