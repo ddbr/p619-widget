@@ -42,13 +42,13 @@ class P619_image_widget extends WP_Widget {
 		echo $args['before_widget'];
 		$img_id = apply_filters( 'widget_image', $instance['image'] );
 		$img_src = wp_get_attachment_url( $img_id );
-		$img_height = $instance['img_height'];
+		$imgheight = $instance['img_height'];
 
 		?>
 		<div class="outer">
 		  <div class="back" style="
 					background-image: url(<?php echo $img_src ?>);
-					padding-top: '<?php echo $img_height ?>%';
+					padding-top: <?php echo $imgheight ?>%;
 				"></div>
 		</div>
 		<?php
