@@ -1,3 +1,5 @@
+<?php
+
 class P619_image_widget extends WP_Widget {
 
 	/**
@@ -100,3 +102,5 @@ class P619_image_widget extends WP_Widget {
 	}
 
 } // class P619_image_widget
+
+?>
