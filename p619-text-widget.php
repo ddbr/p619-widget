@@ -32,10 +32,11 @@ class P619_text_widget extends WP_Widget {
 		echo $args['before_widget'];
 		$txt_h1 = apply_filters( 'widget_title', $instance['title'] );
 		$txt_p = apply_filters( 'widget_text', $instance['text'] );
+		$box_height = $instance['box_height'];
 		?>
 		<div class="outer">
 		  <div class="box" style="
-					padding-top: <?php echo $imgheight ?>%;
+					padding-top: <?php echo $box_height ?>%;
 				">
 		  </div>
 		  <div class="inner">
@@ -57,7 +58,7 @@ class P619_text_widget extends WP_Widget {
 	public function form( $instance ) {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 		$text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'New text', 'text_domain' );
-		$img_height = ! empty( $instance['img_height'] ) ? $instance['img_height'] : __( 'New img_height', 'text_domain' );
+		$box_height = ! empty( $instance['box_height'] ) ? $instance['box_height'] : __( 'New box_height', 'text_domain' );
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
@@ -68,9 +69,9 @@ class P619_text_widget extends WP_Widget {
 			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'text' ) ); ?>" type="text" value="<?php echo esc_attr( $text ); ?>">
 		</p>
 		<p>
-			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( 'Image Height:' ) ); ?></label>
-			<input type="number" name="<?php echo esc_attr( $this->get_field_name( 'img_height' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>" min="0" max="100" step="1" value="<?php echo esc_attr( $img_height ); ?>">
-			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( '%' ) ); ?></label>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'box_height' ) ); ?>"><?php _e( esc_attr( 'Box Height:' ) ); ?></label>
+			<input type="number" name="<?php echo esc_attr( $this->get_field_name( 'box_height' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'box_height' ) ); ?>" min="0" max="100" step="1" value="<?php echo esc_attr( $box_height ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'box_height' ) ); ?>"><?php _e( esc_attr( '%' ) ); ?></label>
 		</p>
 		<?php
 	}
