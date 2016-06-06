@@ -8,7 +8,7 @@ Version: 1
 Author URI: http://p619.ch
 */
 
-require( dirname(__FILE__) . '/p619-image-widget1.php' );
+require( dirname(__FILE__) . '/p619-image-widget.php' );
 
 // register P619_image_widget widget
 function register_p619_image_widget() {
