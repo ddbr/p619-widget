@@ -42,16 +42,14 @@ class P619_image_widget extends WP_Widget {
 		echo $args['before_widget'];
 		$img_id = apply_filters( 'widget_image', $instance['image'] );
 		$img_src = wp_get_attachment_url( $img_id );
-		/*if ( ! empty( $instance['title'] ) ) {
-			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
-		}
-		if ( ! empty( $instance['text'] ) ) {
-			echo $args['before_text'] . apply_filters( 'widget_text', $instance['text'] ) . $args['after_text'];
-		}
-		echo __( esc_attr( 'Hello, World!' ), 'text_domain' );*/
+		$img_height = apply_filters( 'widget_image_height', $instance['img_height'] );
+
 		?>
 		<div class="outer">
-		  <div class="back" style="background-image: url(<?php echo $img_src ?>)"></div>
+		  <div class="back" style="
+					background-image: url(<?php echo $img_src ?>);
+					padding-top: <?php echo $img_height ?>;
+				"></div>
 		</div>
 		<?php
 		echo $args['after_widget'];
