@@ -85,9 +85,9 @@ class P619_image_widget extends WP_Widget {
 		</p>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( 'Image Height:' ) ); ?></label>
-			<input class="widefat" type="number" name="<?php echo esc_attr( $this->get_field_name( 'img_height' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" min="0" max="100" step="1" value="<?php echo esc_attr( $text ); ?>">
+			<input type="number" name="<?php echo esc_attr( $this->get_field_name( 'img_height' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>" min="0" max="100" step="1" value="<?php echo esc_attr( $img_height ); ?>">
 			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( '%' ) ); ?></label>
-		</p>		
+		</p>
 		<?php
 	}
 
