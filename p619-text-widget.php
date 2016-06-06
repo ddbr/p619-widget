@@ -11,7 +11,7 @@ class P619_text_widget extends WP_Widget {
 			__( 'P619 Text Widget', 'text_domain' ), // Name
 			array( 'description' => __( 'Kachel mit Bild', 'text_domain' ), ) // Args
 		);
-		add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
+		//add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
 		add_action('wp_enqueue_scripts', array( $this, 'register_plugin_styles' ) );
 	}
 
