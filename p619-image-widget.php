@@ -68,6 +68,7 @@ class P619_image_widget extends WP_Widget {
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : __( 'New title', 'text_domain' );
 		$text = ! empty( $instance['text'] ) ? $instance['text'] : __( 'New text', 'text_domain' );
 		$image = ! empty( $instance['image'] ) ? $instance['image'] : __( 'New image', 'text_domain' );
+		$img_height = ! empty( $instance['img_height'] ) ? $instance['img_height'] : __( 'New img_height', 'text_domain' );
 		?>
 		<p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php _e( esc_attr( 'Title:' ) ); ?></label>
@@ -82,6 +83,11 @@ class P619_image_widget extends WP_Widget {
 			<input name="<?php echo $this->get_field_name( 'image' ); ?>" id="<?php echo $this->get_field_id( 'image' ); ?>" class="widefat" type="text" size="36"  value="<?php echo esc_attr( $image ); ?>" />
 			<input class="upload_image_button button button-primary" type="button" value="Upload Image" />
 		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( 'Image Height:' ) ); ?></label>
+			<input class="widefat" type="number" name="<?php echo esc_attr( $this->get_field_name( 'img_height' ) ); ?>" id="<?php echo esc_attr( $this->get_field_id( 'text' ) ); ?>" min="0" max="100" step="1" value="<?php echo esc_attr( $text ); ?>">
+			<label for="<?php echo esc_attr( $this->get_field_id( 'img_height' ) ); ?>"><?php _e( esc_attr( '%' ) ); ?></label>
+		</p>		
 		<?php
 	}
 
