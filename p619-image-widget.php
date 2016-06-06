@@ -26,7 +26,7 @@ class P619_image_widget extends WP_Widget {
 	}
 
 	public function register_plugin_styles() {
-		wp_register_style( 'P619_image_widget', plugins_url( 'p619-widget/p619_image_widget.css' ) );
+		wp_register_style( 'P619_image_widget', plugins_url( 'p619-widget/p619-image-widget.css' ) );
 		wp_enqueue_style( 'P619_image_widget' );
 	}
 
