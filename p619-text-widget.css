@@ -1,0 +1,12 @@
+.widget_p619_text_widget .outer {
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.widget_p619_text_widget .back {
+  width: 100%;
+  padding-top: 100%;
+  background-size: cover;
+  background-position: center;
+  left: 100%;
+}
