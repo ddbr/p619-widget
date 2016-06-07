@@ -13,7 +13,7 @@ jQuery( document ).ready( function( $ ) {
           var size_p = 3;
 
           $(".widget_p619_text_widget").each(function() {
-            var w = $( this ).width;
+            var w = $( this ).width();
             $( this ).find( "h1" ).css("font-size", w / 100 + size_h1);
             $( this ).find( "p" ).css("font-size", w / 100 + size_p);
           });
