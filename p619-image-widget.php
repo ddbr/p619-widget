@@ -22,6 +22,7 @@ class P619_image_widget extends WP_Widget {
 		wp_enqueue_script('media-upload');
 		wp_enqueue_script('thickbox');
 		wp_enqueue_script('upload_media_widget', plugin_dir_url(__FILE__) . 'upload-media.js', array('jquery'));
+		wp_enqueue_script('widget_resize', plugin_dir_url(__FILE__) . 'p619-widget-resize.js', array('jquery'));
 		wp_enqueue_style('thickbox');
 	}
 
