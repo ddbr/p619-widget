@@ -6,8 +6,8 @@ jQuery( document ).ready( function( $ ) {
 
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
+        clearTimeout(_p619_resizeTimer);
+        _p619_resizeTimer = setTimeout(function() {
 
           _p619_widget_font_size();
 
@@ -15,8 +15,8 @@ jQuery( document ).ready( function( $ ) {
       });
   }
   else if(window.addEventListener) {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(function() {
+      clearTimeout(_p619_resizeTimer);
+      _p619_resizeTimer = setTimeout(function() {
 
         _p619_widget_font_size();
 
