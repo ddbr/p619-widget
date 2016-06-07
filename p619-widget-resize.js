@@ -6,15 +6,22 @@ jQuery( document ).ready( function( $ ) {
 
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
-        clearTimeout(_p619_resizeTimer);
-        _p619_resizeTimer = setTimeout(function(){ _p619_widget_font_size(); }, 3000)
+        _p619_setResizeTimeout();
       });
   }
   else if(window.addEventListener) {
-      clearTimeout(_p619_resizeTimer);
-      _p619_resizeTimer = setTimeout(function(){ _p619_widget_font_size(); }, 3000)
+      window.addEventListener('resize', function() {
+        _p619_setResizeTimeout();
+      });
   }
 });
+
+function _p619_setResizeTimeout() {
+  clearTimeout(_p619_resizeTimer);
+  _p619_resizeTimer = setTimeout(function(){
+    _p619_widget_font_size();
+  }, 3000)
+}
 
 function _p619_widget_font_size() {
   var size_h1 = 7.7;
