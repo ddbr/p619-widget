@@ -1,9 +1,9 @@
-jQuery( document ).ready( function( $ ) {
+var _p619_resizeTimer;
 
+jQuery( document ).ready( function( $ ) {
   //initialize first resize.
   _p619_widget_font_size();
-  var _p619_resizeTimer;
-
+  
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
         _p619_setResizeTimeout();
