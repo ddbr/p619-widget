@@ -9,8 +9,8 @@ jQuery( document ).ready( function( $ ) {
       window.addEventListener('resize', function() {
           console.log('addEventListener - resize');
 
-          var size_h1 = 9;
-          var size_p = 3.3;
+          var size_h1 = 7.7;
+          var size_p = 3.5;
 
           $(".widget_p619_text_widget").each(function() {
             var w = $( this ).width();
