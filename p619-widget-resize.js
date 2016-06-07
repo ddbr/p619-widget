@@ -1,5 +1,8 @@
 jQuery( document ).ready( function( $ ) {
 
+  //initialize first resize.
+  _p619_widget_font_size();
+
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
           _p619_widget_font_size();
