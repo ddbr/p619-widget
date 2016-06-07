@@ -2,16 +2,25 @@ jQuery( document ).ready( function( $ ) {
 
   //initialize first resize.
   _p619_widget_font_size();
+  var _p619_resizeTimer;
 
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+
           _p619_widget_font_size();
+
+        }, 250);
       });
   }
   else if(window.addEventListener) {
-      window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+
         _p619_widget_font_size();
-      }, true);
+
+      }, 250);
   }
 });
 
