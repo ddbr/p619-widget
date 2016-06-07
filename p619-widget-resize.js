@@ -3,7 +3,7 @@ var _p619_resizeTimer;
 jQuery( document ).ready( function( $ ) {
   //initialize first resize.
   _p619_widget_font_size();
-  
+
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
         _p619_setResizeTimeout();
@@ -20,7 +20,7 @@ function _p619_setResizeTimeout() {
   clearTimeout(_p619_resizeTimer);
   _p619_resizeTimer = setTimeout(function(){
     _p619_widget_font_size();
-  }, 3000)
+  }, 250)
 }
 
 function _p619_widget_font_size() {
