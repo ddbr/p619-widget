@@ -11,7 +11,7 @@ jQuery( document ).ready( function( $ ) {
 
           _p619_widget_font_size();
 
-        }, 250);
+        }, 5000);
       });
   }
   else if(window.addEventListener) {
@@ -20,7 +20,7 @@ jQuery( document ).ready( function( $ ) {
 
         _p619_widget_font_size();
 
-      }, 250);
+      }, 5000);
   }
 });
 
