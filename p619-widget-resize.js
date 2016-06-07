@@ -27,9 +27,9 @@ function _p619_widget_font_size() {
   var size_h1 = 7.7;
   var size_p = 3.5;
 
-  $(".widget_p619_text_widget").each(function() {
+  jQuery(".widget_p619_text_widget").each(function() {
     var w = $( this ).width();
-    $( this ).find( "h1" ).css("font-size", w / 100 * size_h1);
-    $( this ).find( "p" ).css("font-size", w / 100 * size_p);
+    jQuery( this ).find( "h1" ).css("font-size", w / 100 * size_h1);
+    jQuery( this ).find( "p" ).css("font-size", w / 100 * size_p);
   });
 }
