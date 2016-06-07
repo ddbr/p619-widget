@@ -40,7 +40,6 @@ class P619_image_widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		echo $args['before_widget'];
-		wp_enqueue_script('widget_resize', plugin_dir_url(__FILE__) . 'p619-widget-resize.js', array('jquery'));
 		$img_id = apply_filters( 'widget_image', $instance['image'] );
 		$img_src = wp_get_attachment_url( $img_id );
 		$imgheight = $instance['img_height'];

@@ -8,6 +8,8 @@ Version: 1
 Author URI: http://p619.ch
 */
 
+wp_enqueue_script('widget_resize', plugin_dir_url(__FILE__) . 'p619-widget-resize.js', array('jquery'));
+
 require( dirname(__FILE__) . '/p619-image-widget.php' );
 
 // register P619_image_widget widget
