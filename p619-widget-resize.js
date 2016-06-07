@@ -14,4 +14,4 @@ jQuery( document ).ready( function( $ ) {
       //The browser does not support Javascript event binding
   }
 
-}
+});
