@@ -20,7 +20,7 @@ function _p619_setResizeTimeout() {
   clearTimeout(_p619_resizeTimer);
   _p619_resizeTimer = setTimeout(function(){
     _p619_widget_font_size();
-  }, 250)
+  }, 100)
 }
 
 function _p619_widget_font_size() {
