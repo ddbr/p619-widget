@@ -7,11 +7,13 @@ jQuery( document ).ready( function( $ ) {
   if(window.attachEvent) {
       window.attachEvent('onresize', function() {
         _p619_setResizeTimeout();
+        didResize = true;
       });
   }
   else if(window.addEventListener) {
       window.addEventListener('resize', function() {
         _p619_setResizeTimeout();
+        didResize = true;
       });
   }
 });
